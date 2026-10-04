@@ -1,0 +1,52 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      # The site is served from /HealthcareinChina/, not the domain root.
+      # Switch to hash-based routing and make image paths relative so
+      # pages and images resolve correctly there. Source files in the repo
+      # are left unchanged.
+      - name: Adapt for GitHub Pages
+        run: |
+          sed -i 's/BrowserRouter/HashRouter/g' src/main.tsx
+          grep -rl "/images/" src/pages | xargs sed -i -e "s#'/images/#'images/#g" -e 's#"/images/#"images/#g'
+
+      - name: Build
+        run: npx vite build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
