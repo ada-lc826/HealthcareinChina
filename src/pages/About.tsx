@@ -50,9 +50,9 @@ const achievements = [
 ];
 
 const contactMethods = [
-  { icon: Mail, label: 'care@medichina.com', href: 'mailto:care@medichina.com' },
-  { icon: Phone, label: '+86 21 8888 8888', href: 'tel:+862188888888' },
-  { icon: MessageCircle, label: 'WhatsApp: +86 138 8888 8888', href: '#' },
+  { icon: Mail, label: 'chenliuying666@163.com', href: 'mailto:chenliuying666@163.com' },
+  { icon: Phone, label: '+44 7434 667605', href: 'tel:+447434667605' },
+  { icon: MessageCircle, label: 'WhatsApp: +44 7434 667605', href: 'https://wa.me/447434667605' },
   { icon: MapPin, label: 'Shanghai, China', href: '#' },
 ];
 
