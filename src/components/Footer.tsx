@@ -57,15 +57,15 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-gray-400">
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-[hsl(160,60%,45%)]" />
-                care@medichina.com
+                chenliuying666@163.com
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-[hsl(160,60%,45%)]" />
-                +86 21 8888 8888
+                +44 7434 667605
               </li>
               <li className="flex items-center gap-2">
                 <MessageCircle className="h-4 w-4 text-[hsl(160,60%,45%)]" />
-                WhatsApp: +86 138 8888 8888
+                WhatsApp: +44 7434 667605
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 text-[hsl(160,60%,45%)] mt-0.5" />
